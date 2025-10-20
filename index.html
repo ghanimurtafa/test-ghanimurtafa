@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test App</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+      /* Height of the Streamlit embed bar to crop away */
+      :root { --bar-h: 44px; }
+    
+      /* Mobile-safe viewport handling */
+      html, body { margin: 0; padding: 0; height: 100dvh; background: #fff; }
+      @media (prefers-color-scheme: dark) { body { background: #0e1117; } }
+    
+      /* Container crops the bottom area */
+      .viewport {
+        position: relative;
+        height: 100dvh;
+        overflow: hidden;       /* the crop */
+      }
+    
+      /* Make the iframe taller and shift it up so the bar is below the crop line */
+      .appframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: calc(100% + var(--bar-h));
+        border: 0;
+        transform: translateY(calc(-1 * var(--bar-h)));
+      }
     </style>
 </head>
 <body>
