@@ -1,46 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        body {
-          margin: 0;
-        }
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Test App</title>
+  <style>
+    /* Tune this if the bar’s height changes (32–48px on most devices) */
+    :root { --bar-h: 40px; }
 
-        .wrapper {
-          position: relative;
-          z-index: 1;
-          display: inline-block;
-          width: 100vw;
-        }
-
-        .hidefooter {
-          position: absolute;
-          width: 150px;
-          height: 35px;
-          background: rgb(242,240,246);
-          right: 0px;
-          bottom: 0px;
-          z-index: 2;
-          display: block;
-          color: rgb(0, 0, 0);
-        }
-    
-        iframe {
-          display: block;
-          background: #ffffff;
-          border: none;
-          height: 99vh;
-          width: 99vw;
-        }
-        </style>    
-
+    html, body { margin:0; height:100dvh; background:#fff; }
+    .viewport { position:relative; height:100dvh; overflow:hidden; }
+    /* Make the iframe taller and shift it up so the bottom bar sits below the crop line */
+    .appframe {
+      position:absolute; inset:0; border:0;
+      width:100%; height:calc(100% + var(--bar-h));
+      transform: translateY(calc(-1 * var(--bar-h)));
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background:#0e1117; } /* match Streamlit dark background to avoid a visible edge */
+    }
+  </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="hidefooter"></div>
-    <iframe src="https://test-ghanimurtafa.streamlit.app/?embed=true">
-        <p>Your browser doesn't support iframes</p>
-    </iframe>
-    </div>
-</body>
-</html>
+  <div class="viewport">
+    <iframe
+      class="appframe"
+      src="https://test-ghanimurtafa.streamlit.apptml>
