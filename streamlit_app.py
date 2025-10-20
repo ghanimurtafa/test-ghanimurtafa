@@ -38,3 +38,10 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
         color=alt.Color("idx", legend=None, scale=alt.Scale()),
         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
     ))
+
+hide_streamlit_styles = """
+<style>
+footer {visibility: hidden;}
+</style>
+"""
+st.markdown(hide_streamlit_styles, unsafe_allow_html=True)
