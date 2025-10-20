@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <title>Test App</title>
-  <style>
-    /* Tune this if the bar’s height changes (32–48px on most devices) */
-    :root { --bar-h: 40px; }
-
-    html, body { margin:0; height:100dvh; background:#fff; }
-    .viewport { position:relative; height:100dvh; overflow:hidden; }
-    /* Make the iframe taller and shift it up so the bottom bar sits below the crop line */
-    .appframe {
-      position:absolute; inset:0; border:0;
-      width:100%; height:calc(100% + var(--bar-h));
-      transform: translateY(calc(-1 * var(--bar-h)));
-    }
-    @media (prefers-color-scheme: dark) {
-      body { background:#0e1117; } /* match Streamlit dark background to avoid a visible edge */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test App</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="viewport">
-    <iframe
-      class="appframe"
-      src="https://test-ghanimurtafa.streamlit.apptml>
+    <iframe src="https://test-ghanimurtafa.streamlit.app/?embed=true"></iframe>
+</body>
+</html>
